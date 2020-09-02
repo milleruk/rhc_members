@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,9 +30,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/membership/addchild', 'MembershipController@create_child');
     Route::post('/membership/addchild', 'MembershipController@store_child');
 
-});
-
-Route::get('/', function () {
-    return view('welcome');
 });
 

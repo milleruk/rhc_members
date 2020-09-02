@@ -208,7 +208,7 @@
 							<h4 class="text-section">Captains</h4>
                         </li>
                         <li class="nav-item">
-							<a data-toggle="collapse" href="{{ route('admin.list') }}">
+							<a href="{{ route('admin.list') }}">
 								<i class="fas fa-layer-group"></i>
 								<p>Player List</p>
                             </a>

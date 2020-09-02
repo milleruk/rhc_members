@@ -25,10 +25,10 @@ class CreateMemberShipsTable extends Migration
             $table->string('regular_teams');
 
             // Emergency Info
-            $table->string('emg__title');
-            $table->string('emg__name');
-            $table->string('emg__address',999);
-            $table->string('emg__relationship');
+            $table->string('emg_title');
+            $table->string('emg_name');
+            $table->string('emg_address',999);
+            $table->string('emg_relationship');
             $table->string('emg_con_number');
             // MEDICAL
             $table->string('medical_doctor');
@@ -60,10 +60,8 @@ class CreateMemberShipsTable extends Migration
             // UNDER 18s
             $table->integer('under_medical_loco')->nullable();
             $table->string('school',999)->nullable();
-            $table->string('emg2__title')->nullable();
-            $table->string('emg2__name')->nullable();
-            $table->string('emg2__address',999)->nullable();
-            $table->string('emg2__relationship')->nullable();
+            $table->string('emg2_name')->nullable();
+            $table->string('emg2_relationship')->nullable();
             $table->string('emg2_con_number')->nullable();
             $table->string('emg2_email')->nullable();
             $table->string('consent_transportation')->nullable();

@@ -81,4 +81,25 @@ class RolesAccessTest extends TestCase
         //Then
         $response->assertOk();
     }
+
+
+    public function admin_can_access_to_test_page()
+    {
+        //Having
+        $adminUser = factory(User::class)->create();
+
+        $adminUser->assignRole('admin');
+
+        $this->actingAs($adminUser);
+
+        //When
+        $response = $this->get(route('home'));
+
+        //Then
+        $response->assertOk();
+    }
+
+
+
+
 }

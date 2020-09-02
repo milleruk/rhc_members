@@ -37,5 +37,18 @@ class RolesAndPermissionsSeeder extends Seeder
         //$admin->assignRole('player');
         $admin->assignRole('captain');
         $admin->assignRole('committee');
+
+
+        /** @var \App\User $user */
+        $admin2 = factory(\App\User::class)->create([
+            'name' => 'Becki Clarke',
+            'email' => 'beckiclarke@hotmail.com',
+            'password' => bcrypt('123456')
+        ]);
+
+        $admin2->assignRole('admin');
+        //$admin->assignRole('player');
+        $admin2->assignRole('captain');
+        $admin2->assignRole('committee');
     }
 }

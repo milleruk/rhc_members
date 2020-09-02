@@ -33,60 +33,7 @@ class MembershipController extends Controller
 
     public function store_child(Request $request)
     {
-
-        MemberShip::create([
-
-
-        'account_id' => Auth::user()->id,
-        'name' => $request->name,
-        'address' => $request->address,
-        'gender' => $request->gender,
-        'date_of_birth' => $request->date_of_birth,
-        'membershiptype' => $request->membershiptype,
-        // EMERGENCT INFO
-        'emg_title' => $request->emg_title,
-        'emg_name' => $request->emg_name,
-        'emg_address' => $request->emg_address,
-        'emg_relationship' => $request->emg_relationship,
-        'emg_con_number' => $request->emg_con_number,
-        //MEDICAL
-        'medical_doctor' => $request->medical_doctor,
-        'medical_surgery' => $request->medical_surgery,
-        'medical_allergies' => $request->medical_allergies,
-        'medical_allergies_details' => $request->medical_allergies_details,
-        'medical_regularmeds' => $request->medical_regularmeds,
-        'medical_regularmeds_details' => $request->medical_regularmeds_details,
-        'medical_longterm' => $request->medical_longterm,
-        'medical_longterm_details' => $request->medical_longterm_details,
-        'medical_dietary' => $request->medical_dietary,
-        'medical_dietary_details' => $request->medical_dietary_details,
-        'medical_physical' => $request->medical_physical,
-        'medical_physical_details' => $request->medical_physical_details,
-        'medical_consent' => $request->medical_consent,
-        'medical_updates' => $request->medical_updates,
-        // CONSENT
-        'consent_policies' => $request->consent_policies,
-        'consent_photography' => $request->consent_photography,
-        'consent_marketing' => $request->consent_marketing,
-        'consent_privacy_notice' => $request->consent_privacy_notice,
-        // ETH & DIS
-        'ethnicity' => $request->ethnicity,
-        'disability_12months' => $request->disability_12months,
-        'disability_list' => $request->disability_list,
-        // CODE
-        'code_conduct' => $request->code_conduct,
-        'declaration' => $request->declaration,
-        // UNDER 18s
-        'under_medical_loco' => $request->under_medical_loco,
-        'school' => $request->school,
-        'emg2_title' => $request->emg2_title,
-        'emg2_name' => $request->emg2_name,
-        'emg2_address' => $request->emg2_address,
-        'emg2_relationship' => $request->emg2_relationship,
-        'emg2_con_number' => $request->emg2_con_number,
-        'emg2_email' => $request->emg2_email,
-        'consent_transportation' => $request->consent_transportation,
-        ]);
+        dd(request()->all());
 
         return redirect('/home');
     }
