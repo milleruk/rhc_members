@@ -8,19 +8,18 @@
                 <div class="card-body">
                     <form method="post" action="/membership/addchild" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <p>Parents / Guardians of all prospective junior members of Redditch Hockey Club are to
-                            complete this form.</p>
-                        <p><b>Confidentiality:</b> Details on this form will be held securely by the Redditch Hockey Club
-                            Membership Coordinator and will only
-                            be shared with coaches or others who need this information in order to meet the specific needs
-                            of your child.</p>
+                        <p>All prospective members of Redditch Hockey Club are required to complete this membership form. Please ensure that this form
+                            is completed and returned to the Membership Coordinator - Andy Billingham.
+                            </p>
+                        <p><b>Confidentiality:</b> Details on this form will be held securely by the Redditch Hockey Club Membership Coordinator and will only
+                            be shared with coaches or others who need this information in order to meet your specific needs.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Section 1 - U18 Participant Information</div>
+                    <div class="card-title">Section 1 - Participant Information</div>
                 </div>
                 <div class="card-body">
                     <div class="form-group form-group-default form-show-validation row">
@@ -50,18 +49,13 @@
                         {!! Form::date('date_of_birth', null, ['placeholder' => 'Name', 'class' => 'form-control',
                         'required']) !!}
                     </div>
-                    <div class="form-group form-group-default form-show-validation row">
-                        <label for="name">School <span class="-label">*</span></label>
-                        {!! Form::text('school', null, ['placeholder' => 'School', 'class' => 'form-control', 'required'])
-                        !!}
-                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Section 2 - Parent / Guardian / Emergency Contact Details</div>
+                    <div class="card-title">Section 2 - Emergency Contact Details</div>
                 </div>
                 <div class="card-body">
                     <div class="form-group form-group-default form-show-validation row">
@@ -89,30 +83,6 @@
                         {!! Form::number('emg_con_number', null, ['placeholder' => 'Contact Number', 'class' =>
                         'form-control', 'required']) !!}
                     </div>
-                    <p>Incase we cannot contact you via the first method please provide a second contact</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group form-group-default form-show-validation row">
-                                <label for="name">Second Contact Name <span class="-label">*</span></label>
-                                {!! Form::text('emg2_name', null, ['placeholder' => 'First Name', 'class' => 'form-control',
-                                'required']) !!}
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-group-default form-show-validation row">
-                                <label for="name">Second Contact Number <span class="-label">*</span></label>
-                                {!! Form::number('emg2_con_number', null, ['placeholder' => 'Contact Number', 'class' =>
-                                'form-control', 'required']) !!}
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-group-default form-show-validation row">
-                                <label for="name">Second Contact Relationship <span class="-label">*</span></label>
-                                {!! Form::text('emg2_relationship', null, ['placeholder' => 'Relationship', 'class' =>
-                                'form-control', 'required']) !!}
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -122,9 +92,8 @@
                     <div class="card-title">Section 3 - Medical Information</div>
                 </div>
                 <div class="card-body">
-                    <p>In case of emergency, and as part of the club’s responsibility to its membership, parents/guardians
-                        of ALL junior club members
-                        are to complete the medical information as accurately as possible.
+                    <p>In case of emergency, and as part of the club’s responsibility to its membership, ALL club members are required to complete
+                        the medical information as accurately as possible. Please indicate if you would like to discuss this privately with us</p>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group form-group-default form-show-validation row">
@@ -144,7 +113,7 @@
 
                     <div class="row">
                         <div class="col-md-3">
-                            Does your child have any allergies ?
+                            Does you have any allergies ?
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
@@ -165,7 +134,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Does your child take any regular medication?
+                            Does youu take any regular medication?
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
@@ -186,7 +155,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Does your child have any long-term
+                            Does you have any long-term
                             conditions, illnesses or injuries?
                         </div>
                         <div class="col-md-2">
@@ -208,7 +177,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Does your child have any dietary
+                            Does you have any dietary
                             requirements?
                         </div>
                         <div class="col-md-2">
@@ -230,7 +199,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Are there any activities your child is
+                            Are there any activities you
                             cannot participate in?
 
                         </div>
@@ -258,117 +227,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title"><b>Section 4 - Membership Type</b></div>
+                    <div class="card-title">Section 4 - Senior Member Consent: please tick the boxes below</div>
                 </div>
                 <div class="card-body">
-                    Becoming a member of Redditch Hockey Club involves a single subscription fee which covers all Wednesday evening training
-sessions for the Season (Sept – Mar).<br>
-                    <table class="table table-striped mt-3">
-                        <thead>
-                            <tr>
-                                <th width=30% scope="col">Membership Type</th>
-                                <th width=70% scope="col">Membership Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>Under 16 Non-Member</b><br><br>
-                                    <i>Aged 15 or younger on 31st August</i></td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            £5 per training session</li>
-                                        <li>This entitles juniors to training sessions only. Juniors playing in
-                                            Badgers XI matches and U8/U10/U12/U14 teams must be fully
-                                            registered members</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>Under 16 Member</b><br><br>
-                                    <i>Aged 15 or younger on 31st August</i></td>
-                                <td>
-                                    <ul>
-                                        <li>£50 membership</li>
-                                        <li> £5 match fee for all fixtures including friendlies and summer</li>
-                                        league
-                                        <li>Standing Order Option 1 - £12.50 per month. First payment must be set-up before
-                                            the 31st October and run for 12 months
-                                            (October to September inclusive). This includes subscription,
-                                            training and upto 22 winter season (Saturday) match fees.
-                                            Extra matches outside of this quota are to be paid for in cash</li>
-                                        <li>
-                                            Standing Order Option 2 - £25.00 per month running for 6 months (October to
-                                            March inclusive)</li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>Under 18 Non-Member<br>
-                                        Student with valid student card<bR>
-                                        Senior Unemployed</b><br><br>
-                                    <i>Aged 17 or younger on 31st August 2020</i></td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            £140 membership</li>
-                                        <li>£5 match fee for all fixtures including friendlies and summer
-                                            league</li>
-                                        <li>Standing Order Option 1 - £20.00 per month. First payment must be set-up before
-                                            the 31st October and run for 12 months
-                                            (October to September inclusive). This includes subscription,
-                                            training and upto 22 winter season (Saturday) match fees.
-                                            Extra matches outside of this quota are to be paid for in cash</li>
-                                        <li>Standing Order Option 2 - £40.00 per month running for 6 months (October to
-                                            March inclusive)
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <select class="form-control" name="membershiptype" id="membershiptype" required>
-                        <option value="">----</option>
-                        <option value="1">Under 16 Non-Member</option>
-                        <option value="2">Under 16 Member</option>
-                        <option value="3">Under 18 Member</option>
-                        <option value="4">Student with valid student card</option>
-                    </select>
-                    <br>
-                    <p><b>Please note</b> - Only members are able to represent the club in fixtures. This includes Badgers
-                        XI and U8/U10/U12/U14 fixtures.</p>
-                    <p><b>Payment Options </b><br>Cash / Cheque made payable to Redditch C H & R Club Ltd (Hockey Section) /
-                        Card Machine / Bank Transfer / SO
-                        <br>
-                        Santander - Redditch Hockey Club<br>
-                        Sort Code – 09-01-29<br>
-                        Account No. – 19134767</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Section 5 - Under 18 Member Consent: please tick the boxes below</div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <p>I give my consent that if an emergency medical situation arises, the organisation/club may
-                                act as loco parentis. If the
-                                need arises for administration of first aid and/or other medical treatment which in the
-                                opinion of a qualified medical
-                                practitioner may be necessary. I also understand that in such circumstances that all
-                                reasonable steps are made.</p>
-
-                        </div>
-                        <div class="col-md-2">
-                            <div class="custom-control custom-checkbox">
-                                {{ Form::checkbox('under_medical_loco', 1, false, ['id' => 'under_medical_loco', 'class' => 'custom-control-input', 'required']) }}<label
-                                    class="custom-control-label" for="under_medical_loco">Confirm</label>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
                     <div class="row">
                         <div class="col-md-10">
                             <p>Redditch Hockey Club aim to ensure that all members enjoy their participation in hockey. To
@@ -394,19 +255,10 @@ sessions for the Season (Sept – Mar).<br>
                     <hr>
                     <div class="row">
                         <div class="col-md-10">
-                            <p>Photography / Recorded Image Consent – In some environments it is impossible to control
-                                photography by external parties,
-                                however I am aware that that there may be times that photographs and/or footage may be taken
-                                during matches and training
-                                sessions by approved agents and/or officers of Redditch HC. Such images shall be used only
-                                for training/publicity purpose in
-                                accordance with Safeguarding and Protecting Young People in Hockey Policy</p>
-                            <p>I give permission for my son/daughter to appear in photographic or recorded images of their
-                                hockey involvement and for
-                                approved agents to use the images from any photo/film shoots. This includes any
-                                reproductions or adaptations of the
-                                images for all general purposes i.e. local newspapers, magazines, other promotional
-                                material, social media and the club’s website.</p>
+                            <p>Photography / Recorded Image Consent – IThere may be times that photographs and/or footage may be taken during matches and training sessions by approved agents and/or officers of Redditch HC</p>
+                            <p>I give permission to appear in photographic or recorded images of their hockey involvement and for approved agents to use
+                                the images from any photo/film shoots. This includes any reproductions or adaptations of the images for all general
+                                purposes i.e. local newspapers, magazines, other promotional material, social media and the club’s website.</p>
 
                         </div>
                         <div class="col-md-2">
@@ -433,21 +285,6 @@ sessions for the Season (Sept – Mar).<br>
                     <hr>
                     <div class="row">
                         <div class="col-md-10">
-                            <p>I consent to my son/daughter travelling to venues for matches and training by transport
-                                provided by the club which may
-                                include travelling in other players’ private cars</p>
-
-                        </div>
-                        <div class="col-md-2">
-                            <div class="custom-control custom-checkbox">
-                                {{ Form::checkbox('consent_transportation', 1, false, ['id' => 'consent_transportation', 'class' => 'custom-control-input', 'required']) }}<label
-                                    class="custom-control-label" for="consent_transportation">Confirm</label>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-10">
                             <p>Privacy Notice - Redditch Hockey Club take the protection of the data that we hold about you
                                 as a member seriously and will
                                 ensure that the data you provide is processed in accordance with data protection
@@ -466,6 +303,34 @@ sessions for the Season (Sept – Mar).<br>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><b>Section 5 - Membership Type</b></div>
+                </div>
+                <div class="card-body">
+                    Becoming a member of Redditch Hockey Club involves a single subscription fee which covers all Wednesday evening training
+sessions for the Season (Sept – Mar).<br>
+
+                    <select class="form-control" name="membershiptype" id="membershiptype" required>
+                        <option value="">----</option>
+                        <option value="4">Student with valid student card</option>
+                        <option value="5">Full Senior</option>
+                        <option value="6">Social Member (Back to Hockey / Midweek players)</option>
+                        <option value="7">Goalkeeper with own kit</option>
+                    </select>
+                    <br>
+                    <p><b>Please note</b> - Only members are able to represent the club in fixtures. This includes Badgers
+                        XI and U8/U10/U12/U14 fixtures.</p>
+                    <p><b>Payment Options </b><br>Cash / Cheque made payable to Redditch C H & R Club Ltd (Hockey Section) /
+                        Card Machine / Bank Transfer / SO
+                        <br>
+                        Santander - Redditch Hockey Club<br>
+                        Sort Code – 09-01-29<br>
+                        Account No. – 19134767</p>
                 </div>
             </div>
         </div>
@@ -571,7 +436,7 @@ sessions for the Season (Sept – Mar).<br>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Section 8 - Code of Conduct for Parents, Carers and Spectators</div>
+                    <div class="card-title">Section 8 - Code of Conduct for Players and spectators</div>
                 </div>
                 <div class="card-body">
                     <p>All individuals involved in hockey will, at all times:
@@ -603,9 +468,9 @@ sessions for the Season (Sept – Mar).<br>
                     <div class="card-title">Section 9 - Declaration</div>
                 </div>
                 <div class="card-body">
-                    <p>I consider my child to be physically fit and capable of full participation and agree to notify the
+                    <p>I consider myself to be physically fit and capable of full participation and agree to notify the
                         club of any changes to the medical information provided. Furthermore, I agree to abide by Redditch
-                        Hockey Club’s code of conduct for parents, carers
+                        Hockey Club’s code of conduct for players
                         and spectators.</p>
                     <div class="custom-control custom-checkbox">
                         {{ Form::checkbox('declaration', 1, false, ['id' => 'declaration', 'class' => 'custom-control-input', 'required']) }}<label

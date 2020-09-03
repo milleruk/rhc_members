@@ -13,30 +13,29 @@
                             </div>
                         @endif
 
-                        <br>The following players are listed that you have avalaible<br><bR>
-
+                        <br>The following players are listed under the club<br><bR>
                             <table class="table table-striped">
                                 <thead>
-                                  <tr>
-                                    <th>Player Name</th>
-                                    <th>Address</th>
-                                    <th>Date of Birth</th>
-                                    <th></th>
-                                  </tr>
+                                    <td>Name</td>
+                                    <td>Membership Type</td>
+                                    <td>Date Of Birth</td>
+                                    <td colspan=2>Emergency Details</td>
+                                    <td colspan=2>Actions</td>
                                 </thead>
                                 <tbody>
 
-                        @forelse ($childData as $data)
+                                    @forelse ($memberData as $data)
 
-
-
-
-                            <tr>
-                                <td>{{  $data->first_name  }}</td>
-                                <td>{{  $data->address }}</td>
-                                <td>{{  $data->date_of_birth  }}</td>
-                                <td><a href="/membership/addchild"><button type="button" class="btn btn-primary">Info</button></a></td>
-                              </tr>
+                                        <tr>
+                                            <td>{{ $data->first_name }} {{ $data->last_name }}</td>
+                                            <td>{{ $data->membershiptype }}</td>
+                                            <td>{{ $data->date_of_birth }}</td>
+                                            <td>{{ $data->emg_name }} <br> {{ $data->emg_con_number }} <br> {{ $data->emg_relationship }}</td>
+                                            <td>{{ $data->emg2_name }} <br> {{ $data->emg2_con_number }} <br> {{ $data->emg2_relationship }}</td>
+                                            <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
+                                            <td><a href="/membership/remove/{{ $data->id }}"><button type="button"
+                                                        class="btn btn-warning btn-sm">Remove</button></a></td>
+                                        </tr>
 
 
 

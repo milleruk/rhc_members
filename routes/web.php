@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/membership/remove/{id}', 'MembershipController@destroy');
     Route::get('/membership/addchild', 'MembershipController@create_child');
     Route::post('/membership/addchild', 'MembershipController@store_child');
+    Route::get('/membership/addsenior', 'MembershipController@create_senior');
+    Route::post('/membership/addsenior', 'MembershipController@store_senior');
 
 });
 

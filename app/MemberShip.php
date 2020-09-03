@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class MemberShip extends Model
 {
     protected $fillable = [
+        'first_name',
+        'last_name',
         'account_id',
         'name',
         'address',
         'gender',
         'date_of_birth',
         'membershiptype',
+        'email',
+        'regular_teams',
         // EMERGENCT INFO
         'emg_title',
         'emg_name',
@@ -32,8 +36,6 @@ class MemberShip extends Model
         'medical_dietary_details',
         'medical_physical',
         'medical_physical_details',
-        'medical_consent',
-        'medical_updates',
         // CONSENT
         'consent_policies',
         'consent_photography',

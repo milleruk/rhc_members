@@ -34,7 +34,6 @@ class RolesAndPermissionsSeeder extends Seeder
         ]);
 
         $admin->assignRole('admin');
-        //$admin->assignRole('player');
         $admin->assignRole('captain');
         $admin->assignRole('committee');
 
@@ -47,8 +46,8 @@ class RolesAndPermissionsSeeder extends Seeder
         ]);
 
         $admin2->assignRole('admin');
-        //$admin->assignRole('player');
         $admin2->assignRole('captain');
         $admin2->assignRole('committee');
+
     }
 }

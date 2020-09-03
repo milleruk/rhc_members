@@ -23,6 +23,7 @@ class CreateMemberShipsTable extends Migration
             $table->date('date_of_birth');
             $table->integer('membershiptype');
             $table->string('regular_teams');
+            $table->string('email');
 
             // Emergency Info
             $table->string('emg_title');
@@ -43,16 +44,14 @@ class CreateMemberShipsTable extends Migration
             $table->string('medical_dietary_details')->nullable();
             $table->integer('medical_physical');
             $table->string('medical_physical_details')->nullable();
-            $table->integer('medical_consent');
-            $table->integer('medical_updates');
             //CONSENT
-            $table->integer('consent_polices');
+            $table->integer('consent_policies');
             $table->integer('consent_photography');
             $table->integer('consent_marketing');
             $table->integer('consent_privacy_notice');
             //ETHNICITY & DIS
             $table->string('ethnicity');
-            $table->string('disability_12months');
+            $table->string('disability_12months')->nullable();
             $table->string('disability_list')->nullable();
             // CODE
             $table->integer('code_conduct');

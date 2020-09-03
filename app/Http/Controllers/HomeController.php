@@ -30,8 +30,8 @@ class HomeController extends Controller
 
     public function adminList()
     {
-        $childData = MemberShip::get();
+        $memberData = MemberShip::get();
         //return $childData;
-        return view('admin.list')->with(compact('childData'));
+        return view('admin.list')->with(compact('memberData'));
     }
 }
