@@ -31,10 +31,7 @@ class MembershipController extends Controller
 
     public function store_child(Request $request)
     {
-        //dd(request()->all());
-
         MemberShip::create([
-
 
             'account_id' => Auth::user()->id,
             'address' => $request->address,
@@ -96,8 +93,6 @@ class MembershipController extends Controller
 
     public function store_senior(Request $request)
     {
-        //dd(request()->all());
-        //$dataTeams = $request->input('regular_teams');
 
         MemberShip::create([
 
@@ -180,12 +175,5 @@ class MembershipController extends Controller
             'success' => $success,
             'message' => $message,
         ]);
-
-       //         return redirect()->route('account')
-       //     ->with('success', 'User deleted successfully');
-        //$userID = Auth::user()->id;
-        //Membership::find($id)->where("account_id",$userID)->where("id",$id)->delete();
-        //return redirect()->route('account')
-        //    ->with('success', 'User deleted successfully');
     }
 }
