@@ -6,10 +6,9 @@
             <div class="card card-primary bg-primary-gradient bubble-shadow">
 
                 <div class="card-body">
-                    <form method="post" action="/membership/addchild" enctype="multipart/form-data">
+                    <form method="post" action="/membership/addsenior" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <p>All prospective members of Redditch Hockey Club are required to complete this membership form. Please ensure that this form
-                            is completed and returned to the Membership Coordinator - Andy Billingham.
+                        <p>All prospective members of Redditch Hockey Club are required to complete this membership form.
                             </p>
                         <p><b>Confidentiality:</b> Details on this form will be held securely by the Redditch Hockey Club Membership Coordinator and will only
                             be shared with coaches or others who need this information in order to meet your specific needs.</p>
@@ -24,9 +23,10 @@
                 <div class="card-body">
                     <div class="form-group form-group-default form-show-validation row">
                         <label>Gender</label>
-                        <select class="form-control" id="gender">
-                            <option>Male</option>
-                            <option>Female</option>
+                        <select class="form-control" name="gender" id="gender" required>
+                            <option value="">----</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                     <div class="form-group form-group-default form-show-validation row">
@@ -40,8 +40,13 @@
                         'required']) !!}
                     </div>
                     <div class="form-group form-group-default form-show-validation row">
-                        <label for="name">Address <span class="-label">*</span></label>
-                        {!! Form::text('address', null, ['placeholder' => 'Address', 'class' => 'form-control', 'required'])
+                        <label for="name">Home Address <span class="-label">*</span></label>
+                        {!! Form::text('address', null, ['placeholder' => 'Home Address', 'class' => 'form-control', 'required'])
+                        !!}
+                    </div>
+                    <div class="form-group form-group-default form-show-validation row">
+                        <label for="name">Mobile Number <span class="-label">*</span></label>
+                        {!! Form::number('mobile_phone', null, ['placeholder' => 'Mobile Number', 'class' => 'form-control', 'required'])
                         !!}
                     </div>
                     <div class="form-group form-group-default form-show-validation row">
@@ -113,7 +118,7 @@
 
                     <div class="row">
                         <div class="col-md-3">
-                            Does you have any allergies ?
+                            Do you have any allergies ?
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
@@ -134,7 +139,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Does youu take any regular medication?
+                            Do you take any regular medication?
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
@@ -155,7 +160,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Does you have any long-term
+                            Do you have any long-term
                             conditions, illnesses or injuries?
                         </div>
                         <div class="col-md-2">
@@ -177,7 +182,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            Does you have any dietary
+                            Do you have any dietary
                             requirements?
                         </div>
                         <div class="col-md-2">
@@ -220,7 +225,33 @@
                             </div>
                         </div>
                     </div>
-
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <p>I consent to my medical details to be shared with coaches/leaders for the purposes of the delivery of my safe participation in the hockey club activity</p>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="custom-control custom-checkbox">
+                                {{ Form::checkbox('medical_consent', 1, false, ['id' => 'medical_consent', 'class' => 'custom-control-input', 'required']) }}<label
+                                    class="custom-control-label" for="medical_consent">Confirm</label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <p>I agree to notify the club of any changes to the medical information provided.</p>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="custom-control custom-checkbox">
+                                {{ Form::checkbox('medical_consent_update', 1, false, ['id' => 'medical_consent_update', 'class' => 'custom-control-input', 'required']) }}<label
+                                    class="custom-control-label" for="medical_consent_update">Confirm</label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p><b>Not providing consent will not affect your membership to the Club, however giving consent to share this information will help
+                        club volunteers to know how to respond effectively in the case of any medical emergency</b></p>
                 </div>
             </div>
         </div>
@@ -255,8 +286,8 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-10">
-                            <p>Photography / Recorded Image Consent – IThere may be times that photographs and/or footage may be taken during matches and training sessions by approved agents and/or officers of Redditch HC</p>
-                            <p>I give permission to appear in photographic or recorded images of their hockey involvement and for approved agents to use
+                            <p>Photography / Recorded Image Consent – There may be times that photographs and/or footage may be taken during matches and training sessions by approved agents and/or officers of Redditch HC</p>
+                            <p>I give permission to appear in photographic or recorded images of my hockey involvement and for approved agents to use
                                 the images from any photo/film shoots. This includes any reproductions or adaptations of the images for all general
                                 purposes i.e. local newspapers, magazines, other promotional material, social media and the club’s website.</p>
 
@@ -314,7 +345,102 @@
                 <div class="card-body">
                     Becoming a member of Redditch Hockey Club involves a single subscription fee which covers all Wednesday evening training
 sessions for the Season (Sept – Mar).<br>
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th width=20% scope="col">Membership Type</th>
+            <th width=10% scope="col">Subs</th>
+            <th width=10% scope="col">Match Fees</th>
+            <th width=60% scope="col">Membership Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>Full Senior</b></td>
+            <td>£250<br>
+                (aged 18-64)<br><bR>
+                £120<br>
+                (over 65)</td>
+            <td>£10</td>
+            <td>
+                <ul>
+                    <li>
+                        Standing Order Option 1 - £32.50 per month. First
+payment must be set-up before the 31st October and
+run for 12 months (October to September inclusive).
+This includes subscription, training and upto 22
+winter season (Saturday) match fees. Extra matches
+outside of this quota are to be paid for in cash</li>
+                    <li>Standing Order Option 2 - £65.00 per month
+                        running for 6 months (October to March inclusive</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Under 18 Member<br>
+                Student with valid
+                student card<br>
+                Senior Unemployed</td>
+                <td>£140</td>
+                <td>£5</td>
+                <td>
+                    <ul>
+                        <li>
+                            Standing Order Option 1 - - £20.00 per month. First
+                            payment must be set-up before the 31st October and
+                            run for 12 months (October to September inclusive).
+                            This includes subscription, training and upto 22
+                            winter season (Saturday) match fees. Extra matches
+                            outside of this quota are to be paid for in cash</li>
+                        <li>- £40.00 per month
+                            running for 6 months (October to March inclusive)
+                            </li>
+                    </ul>
+                </td>
+        </tr>
+        <tr>
+            <td><b>Social
+                Member
+                (Back to Hockey /
+                Midweek players)</td>
+                <td>£50</td>
+                <td>£10</td>
+                <td>
+                    <ul>
+                        <li>
+                            Aimed at players who are 'Back to Hockey' training or
+                            only feature in a small number of games during the
+                            season either at the weekend or mid-week e.g
+                            Veterans XI.
+                            </li>
+                        <li>RHC ask for an increased donation should the member go on to play in more than 5 fixtures of £10
+                            subscription per game and £10 match fee.
+                            </li>
+                            <li>Standing order is not available for this membership
+                                type
+                                </li>
+                </td>
+        </tr>
+        <tr>
+            <td><b>Goalkeeper with own kit</b></td>
+                <td>£35</td>
+                <td>£5</td>
+                <td>
+                    <ul>
+                        <li>
+                            This is only available for goalkeepers who purchase
+and maintain their own kit to a standard that
+Redditch Hockey Club finds acceptable</li>
+                        <li>-Standing order is not available for this membership
+                            type
+                            </li>
+                    </ul>
+                </td>
+        </tr>
 
+
+    </tbody>
+</table>
                     <select class="form-control" name="membershiptype" id="membershiptype" required>
                         <option value="">----</option>
                         <option value="4">Student with valid student card</option>
@@ -323,15 +449,23 @@ sessions for the Season (Sept – Mar).<br>
                         <option value="7">Goalkeeper with own kit</option>
                     </select>
                     <br>
-                    <p><b>Please note</b> - Only members are able to represent the club in fixtures. This includes Badgers
-                        XI and U8/U10/U12/U14 fixtures.</p>
                     <p><b>Payment Options </b><br>Cash / Cheque made payable to Redditch C H & R Club Ltd (Hockey Section) /
                         Card Machine / Bank Transfer / SO
                         <br>
                         Santander - Redditch Hockey Club<br>
                         Sort Code – 09-01-29<br>
                         Account No. – 19134767</p>
-                </div>
+                        <p><b>Please let us know how you are paying for your membership</b></p>
+                        <select class="form-control" name="paymenttype" id="paymenttype" required>
+                            <option value="">----</option>
+                            <option value="1">Cash</option>
+                            <option value="2">Cheque</option>
+                            <option value="3">Card</option>
+                            <option value="4">Bank Transfer</option>
+                            <option value="5">Standing Order</option>
+                        </select>
+
+                    </div>
             </div>
         </div>
         <div class="col-lg-12">
@@ -436,19 +570,33 @@ sessions for the Season (Sept – Mar).<br>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Section 8 - Code of Conduct for Players and spectators</div>
+                    <div class="card-title">Section 8 - Code of Conduct for Players and Spectators</div>
                 </div>
                 <div class="card-body">
                     <p>All individuals involved in hockey will, at all times:
                     <ul>
                         <li>Respect the spirit of fair play in hockey. This is more than playing within the rules. It also
                             incorporates the concepts of
-                            friendship, respect for others and always participating with the right spirit.</li>
-                        <li>Respect the rights, dignity and worth of others.</li>
+                            friendship, respect for others and always participating with the right spirit.
+                        <ul><li>
+                            Focus on the young people’s efforts and enjoyment rather than winning or losing.</li><li>
+Teach young people that honest effort and teamwork are as important as victory, so the result of each game is accepted
+without undue disappointment.</li><li>
+Remember that people learn best by example. Appreciate good performances and skilful play by all participants.</li>
+Encourage people always to settle disagreements amicably without resorting to hostility or violence.
+</li></ul></li>
+                        <li>Respect the rights, dignity and worth of others.
+                            <ul><li>Respect umpires, officials, coaches, players and spectators.</li><li>
+                                Respect the decisions of officials and teach young people to do the same.</li><li>
+                                Show an appreciation for volunteer coaches and administrators
+                                </li></ul>
+                        </li>
                         <li>Conduct themselves in a manner that takes all reasonable measures to protect their own safety
-                            and the safety of others.</li>
+                            and the safety of others.
+                        <ul><li>Inform the team coach, manager, captain or, if there is one, another member of a management team of any new or
+                            changed injury, health or welfare issue which they consider is appropriate for them to know</li></ul></li>
                         <li>Promote the reputation of the sport and take all possible steps to prevent it from being brought
-                            into disrepute.</li>
+                            into disrepute.<ul><li>Remember that young people participate in sport for their enjoyment, not yours</li></ul></li>
                         <li>Protect others involved in the game from verbal or physical abuse and threatening or
                             intimidating behaviour.</li>
                         <li>Never use inappropriate language or gestures.</li>

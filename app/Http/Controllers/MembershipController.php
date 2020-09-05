@@ -38,11 +38,13 @@ class MembershipController extends Controller
 
             'account_id' => Auth::user()->id,
             'address' => $request->address,
-            'gender' => "MALE",
+            'gender' => $request->gender,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'date_of_birth' => $request->date_of_birth,
             'membershiptype' => $request->membershiptype,
+            'mobile_phone' => $request->emg_con_number,
+            'paymenttype' => $request->paymenttype,
             'email' => Auth::user()->email,
             'regular_teams' => 1,
             // EMERGENCT INFO
@@ -94,19 +96,23 @@ class MembershipController extends Controller
 
     public function store_senior(Request $request)
     {
+        //dd(request()->all());
+        //$dataTeams = $request->input('regular_teams');
 
         MemberShip::create([
 
 
             'account_id' => Auth::user()->id,
             'address' => $request->address,
-            'gender' => "MALE",
+            'gender' => $request->gender,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'date_of_birth' => $request->date_of_birth,
             'membershiptype' => $request->membershiptype,
+            'paymenttype' => $request->paymenttype,
             'email' => Auth::user()->email,
             'regular_teams' => 1,
+            'mobile_phone' => $request->mobile_phone,
             // EMERGENCT INFO
             'emg_title' => $request->emg_title,
             'emg_name' => $request->emg_name,
@@ -126,6 +132,8 @@ class MembershipController extends Controller
             'medical_dietary_details' => $request->medical_dietary_details,
             'medical_physical' => $request->medical_physical,
             'medical_physical_details' => $request->medical_physical_details,
+            'medical_consent' => $request->medical_consent,
+            'medical_consent_update' => $request->consent_update,
             // CONSENT
             'consent_policies' => $request->consent_policies,
             'consent_photography' => $request->consent_photography,
@@ -158,9 +166,26 @@ class MembershipController extends Controller
     public function destroy($id)
     {
 
-        $userID = Auth::user()->id;
-        Membership::find($id)->where("account_id",$userID)->where("id",$id)->delete();
-        return redirect()->route('account')
-            ->with('success', 'User deleted successfully');
+        $delete = Membership::where('id', $id)->delete();
+        // check data deleted or not
+        if ($delete == 1) {
+            $success = true;
+            $message = "User deleted successfully";
+        } else {
+            $success = true;
+            $message = "User not found";
+        }
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
+
+       //         return redirect()->route('account')
+       //     ->with('success', 'User deleted successfully');
+        //$userID = Auth::user()->id;
+        //Membership::find($id)->where("account_id",$userID)->where("id",$id)->delete();
+        //return redirect()->route('account')
+        //    ->with('success', 'User deleted successfully');
     }
 }

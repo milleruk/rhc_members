@@ -21,7 +21,9 @@ class CreateMemberShipsTable extends Migration
             $table->string('last_name');
             $table->string('address',999);
             $table->date('date_of_birth');
+            $table->string('mobile_phone')->nullable();
             $table->integer('membershiptype');
+            $table->integer('paymenttype');
             $table->string('regular_teams');
             $table->string('email');
 
@@ -56,8 +58,10 @@ class CreateMemberShipsTable extends Migration
             // CODE
             $table->integer('code_conduct');
             $table->integer('declaration');
-            // UNDER 18s
+            // SPECIFICS
             $table->integer('under_medical_loco')->nullable();
+            $table->integer('medical_consent')->nullable();
+            $table->integer('medical_consent_update')->nullable();
             $table->string('school',999)->nullable();
             $table->string('emg2_name')->nullable();
             $table->string('emg2_relationship')->nullable();

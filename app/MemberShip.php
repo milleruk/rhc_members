@@ -14,7 +14,9 @@ class MemberShip extends Model
         'address',
         'gender',
         'date_of_birth',
+        'mobile_phone',
         'membershiptype',
+        'paymenttype',
         'email',
         'regular_teams',
         // EMERGENCT INFO
@@ -50,6 +52,8 @@ class MemberShip extends Model
         'declaration',
         // UNDER 18s
         'under_medical_loco',
+        'medical_consent',
+        'medical_consent_update',
         'school',
         'emg2_title',
         'emg2_name',

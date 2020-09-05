@@ -341,8 +341,7 @@
 <!-- Google Maps Plugin -->
 <script src="{{ asset('js/plugin/gmaps/gmaps.js') }}"></script>
 
-<!-- Sweet Alert -->
-<script src="{{ asset('js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+
 
 <!-- Azzara JS -->
 <script src="{{ asset('js/ready.min.js') }}"></script>

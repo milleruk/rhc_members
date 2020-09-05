@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/account', 'MembershipController@index')->name('account');
-    Route::get('/membership/remove/{id}', 'MembershipController@destroy');
+    Route::post('/membership/remove/{id}', 'MembershipController@destroy')->name('users.destroy');
     Route::get('/membership/addchild', 'MembershipController@create_child');
     Route::post('/membership/addchild', 'MembershipController@store_child');
     Route::get('/membership/addsenior', 'MembershipController@create_senior');

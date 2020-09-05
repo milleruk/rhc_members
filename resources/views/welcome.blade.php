@@ -3,12 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
+        <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<!-- CSS Files -->
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/azzara.min.css') }}">
 
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link rel="stylesheet" href="{{ asset('css/demo.css') }}">
         <!-- Styles -->
         <style>
             html, body {
@@ -64,37 +67,25 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    <img src="https://pbs.twimg.com/profile_images/776496372254121984/gAIO0-U6_400x400.jpg">
-                    <br>
-                </div>
+ <!-- Page Content --><br>
+ <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Redditch Hockey Club Members</h1>
+            <p class="lead">This website is for playing members of Redditch Hockey club</p>
+            <p class="lead">If you are looking for our club website please click <a href="https://www.redditchhc.co.uk">Here</a></p>
+            <hr class="my-4">
+            <p class="lead">
                 @auth
-                <a href="{{ url('/home') }}">Home</a>
+                <script>window.location = "/home";</script>
             @else
-                <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('login') }}"><button class="btn btn-primary btn-round btn-lg">Login</button></a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}"><button class="btn btn-primary btn-border btn-round btn-lg">Register</button></a>
                 @endif
-            @endauth
-
-            </div>
-        </div>
+                @endauth
+            </p>
+          </div>
+ </div>
     </body>
 </html>

@@ -1,6 +1,66 @@
 @extends('layouts.app', ['title' => 'About'])
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="card card-stats card-primary card-round">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="flaticon-users"></i>
+                        </div>
+                    </div>
+                    <div class="col col-stats">
+                        <div class="numbers">
+                            <p class="card-category">Male Mebers</p>
+                            <h4 class="card-title">{{ $countMale }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="card card-stats card-info card-round">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="flaticon-users"></i>
+                        </div>
+                    </div>
+                    <div class="col col-stats">
+                        <div class="numbers">
+                            <p class="card-category">Female Members</p>
+                            <h4 class="card-title">{{ $countFemale }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="card card-stats card-secondary card-round">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="flaticon-users"></i>
+                        </div>
+                    </div>
+                    <div class="col col-stats">
+                        <div class="numbers">
+                            <p class="card-category">Total Members</p>
+                            <h4 class="card-title">{{ $memberDataTotal }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         <div class="row">
             <div class="col col-lg 12">
                 <div class="card">
@@ -14,43 +74,81 @@
                         @endif
 
                         <br>The following players are listed under the club<br><bR>
-                            <table class="table table-striped">
-                                <thead>
-                                    <td>Name</td>
-                                    <td>Membership Type</td>
-                                    <td>Date Of Birth</td>
-                                    <td colspan=2>Emergency Details</td>
-                                    <td colspan=2>Actions</td>
-                                </thead>
-                                <tbody>
-
-                                    @forelse ($memberData as $data)
-
+                            <div class="table-responsive">
+                                <table id="multi-filter-select" class="display table table-striped table-hover" >
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Gender</th>
+                                            <th>Date Of Birth</th>
+                                            <th>Mobile</th>
+                                            <th>Emergency Details</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Gender</th>
+                                            <th>Date Of Birth</th>
+                                            <th>Mobile</th>
+                                            <th>Emergency Details</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach ($memberData as $data)
                                         <tr>
                                             <td>{{ $data->first_name }} {{ $data->last_name }}</td>
-                                            <td>{{ $data->membershiptype }}</td>
+                                            <td>{{ $data->gender }}</td>
                                             <td>{{ $data->date_of_birth }}</td>
+                                            <td>{{ $data->mobile_phone }}</td>
                                             <td>{{ $data->emg_name }} <br> {{ $data->emg_con_number }} <br> {{ $data->emg_relationship }}</td>
-                                            <td>{{ $data->emg2_name }} <br> {{ $data->emg2_con_number }} <br> {{ $data->emg2_relationship }}</td>
-                                            <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
-                                            <td><a href="/membership/remove/{{ $data->id }}"><button type="button"
-                                                        class="btn btn-warning btn-sm">Remove</button></a></td>
+
+                                            <td><button type="button" class="btn btn-primary btn-sm">View</button>
+                                            </td>
                                         </tr>
-
-
-
-
-                        @empty
-                            <br>No Registered players are on this account please add one<br><br>
-                        @endforelse
-
-                    </tbody>
-                </table>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <script>
+            $(document).ready(function() {
+                $('#basic-datatables').DataTable({});
 
+                $('#multi-filter-select').DataTable({
+                    "pageLength": 10,
+                    initComplete: function() {
+                        this.api().columns().every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-control"><option value=""></option></select>'
+                                    )
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                        $(this).val()
+                                    );
+
+                                    column
+                                        .search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+
+                            column.data().unique().sort().each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d +
+                                    '</option>')
+                            });
+                        });
+                    }
+                });
+            });
+
+        </script>
 
 @endsection

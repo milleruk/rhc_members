@@ -51,8 +51,8 @@
                         'required']) !!}
                     </div>
                     <div class="form-group form-group-default form-show-validation row">
-                        <label for="name">School <span class="-label">*</span></label>
-                        {!! Form::text('school', null, ['placeholder' => 'School', 'class' => 'form-control', 'required'])
+                        <label for="name">School/ College and Year <span class="-label">*</span></label>
+                        {!! Form::text('school', null, ['placeholder' => 'School/ College and Year', 'class' => 'form-control', 'required'])
                         !!}
                     </div>
                 </div>
@@ -342,6 +342,15 @@ sessions for the Season (Sept – Mar).<br>
                         Santander - Redditch Hockey Club<br>
                         Sort Code – 09-01-29<br>
                         Account No. – 19134767</p>
+                        <p><b>Please let us know how you are paying for your membership</b></p>
+                        <select class="form-control" name="paymenttype" id="paymenttype" required>
+                            <option value="">----</option>
+                            <option value="1">Cash</option>
+                            <option value="2">Cheque</option>
+                            <option value="3">Card</option>
+                            <option value="4">Bank Transfer</option>
+                            <option value="5">Standing Order</option>
+                        </select>
                 </div>
             </div>
         </div>
@@ -575,19 +584,33 @@ sessions for the Season (Sept – Mar).<br>
                 </div>
                 <div class="card-body">
                     <p>All individuals involved in hockey will, at all times:
-                    <ul>
-                        <li>Respect the spirit of fair play in hockey. This is more than playing within the rules. It also
-                            incorporates the concepts of
-                            friendship, respect for others and always participating with the right spirit.</li>
-                        <li>Respect the rights, dignity and worth of others.</li>
-                        <li>Conduct themselves in a manner that takes all reasonable measures to protect their own safety
-                            and the safety of others.</li>
-                        <li>Promote the reputation of the sport and take all possible steps to prevent it from being brought
-                            into disrepute.</li>
-                        <li>Protect others involved in the game from verbal or physical abuse and threatening or
-                            intimidating behaviour.</li>
-                        <li>Never use inappropriate language or gestures.</li>
-                    </ul>
+                        <ul>
+                            <li>Respect the spirit of fair play in hockey. This is more than playing within the rules. It also
+                                incorporates the concepts of
+                                friendship, respect for others and always participating with the right spirit.
+                            <ul><li>
+                                Focus on the young people’s efforts and enjoyment rather than winning or losing.</li><li>
+    Teach young people that honest effort and teamwork are as important as victory, so the result of each game is accepted
+    without undue disappointment.</li><li>
+    Remember that people learn best by example. Appreciate good performances and skilful play by all participants.</li>
+    Encourage people always to settle disagreements amicably without resorting to hostility or violence.
+    </li></ul></li>
+                            <li>Respect the rights, dignity and worth of others.
+                                <ul><li>Respect umpires, officials, coaches, players and spectators.</li><li>
+                                    Respect the decisions of officials and teach young people to do the same.</li><li>
+                                    Show an appreciation for volunteer coaches and administrators
+                                    </li></ul>
+                            </li>
+                            <li>Conduct themselves in a manner that takes all reasonable measures to protect their own safety
+                                and the safety of others.
+                            <ul><li>Inform the team coach, manager, captain or, if there is one, another member of a management team of any new or
+                                changed injury, health or welfare issue which they consider is appropriate for them to know</li></ul></li>
+                            <li>Promote the reputation of the sport and take all possible steps to prevent it from being brought
+                                into disrepute.<ul><li>Remember that young people participate in sport for their enjoyment, not yours</li></ul></li>
+                            <li>Protect others involved in the game from verbal or physical abuse and threatening or
+                                intimidating behaviour.</li>
+                            <li>Never use inappropriate language or gestures.</li>
+                        </ul>
                     </p>
                     <div class="custom-control custom-checkbox">
                         {{ Form::checkbox('code_conduct', 1, false, ['id' => 'code_conduct', 'class' => 'custom-control-input', 'required']) }}<label
@@ -607,6 +630,7 @@ sessions for the Season (Sept – Mar).<br>
                         club of any changes to the medical information provided. Furthermore, I agree to abide by Redditch
                         Hockey Club’s code of conduct for parents, carers
                         and spectators.</p>
+                        <p><b>For your child’s safety please be sure that they wear protective equipment such as shin pads and a wellfitting gum shield when training and playing hockey.</b></p>
                     <div class="custom-control custom-checkbox">
                         {{ Form::checkbox('declaration', 1, false, ['id' => 'declaration', 'class' => 'custom-control-input', 'required']) }}<label
                             class="custom-control-label" for="declaration">By Ticking this box you agreed that all of the

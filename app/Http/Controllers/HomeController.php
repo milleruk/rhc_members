@@ -31,7 +31,10 @@ class HomeController extends Controller
     public function adminList()
     {
         $memberData = MemberShip::get();
+        $memberDataTotal = MemberShip::count();
+        $countMale = MemberShip::where('gender','MALE')->count();
+        $countFemale = MemberShip::where('gender','FEMALE')->count();
         //return $childData;
-        return view('admin.list')->with(compact('memberData'));
+        return view('admin.list')->with(compact('memberData','countMale','countFemale','memberDataTotal'));
     }
 }
