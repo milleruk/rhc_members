@@ -21,7 +21,6 @@
                     <table class="table table-striped">
                         <thead>
                             <td>Name</td>
-                            <td>Membership Type</td>
                             <td>Date Of Birth</td>
                             <td>Emergency Details</td>
                             <td colspan=2>Actions</td>
@@ -32,7 +31,6 @@
 
                                 <tr>
                                     <td>{{ $data->first_name }} {{ $data->last_name }}</td>
-                                    <td>{{ $data->membershiptype }}</td>
                                     <td>{{ $data->date_of_birth }}</td>
                                     <td>{{ $data->emg_name }} <br> {{ $data->emg_con_number }}</td>
                                     <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>

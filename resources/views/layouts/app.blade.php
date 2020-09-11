@@ -207,7 +207,7 @@
 							<h4 class="text-section">Committee</h4>
                         </li>
                         <li class="nav-item">
-							<a data-toggle="collapse" href="#base">
+							<a href="{{ route('admin.list') }}">
 								<i class="fas fa-layer-group"></i>
 								<p>Full List</p>
                             </a>
