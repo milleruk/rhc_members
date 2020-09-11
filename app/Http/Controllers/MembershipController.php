@@ -93,9 +93,11 @@ class MembershipController extends Controller
 
     public function store_senior(Request $request)
     {
+        $this->validate($request, [
+            'medical_allergies_details' => 'required',
+        ]);
 
         MemberShip::create([
-
 
             'account_id' => Auth::user()->id,
             'address' => $request->address,

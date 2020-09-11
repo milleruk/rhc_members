@@ -23,11 +23,7 @@
                 <div class="card-body">
                     <div class="form-group form-group-default form-show-validation row">
                         <label>Gender</label>
-                        <select class="form-control" name="gender" id="gender" required>
-                            <option value="">----</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
+                        {!! Form::select('gender', ["" => '--', 'Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control', 'required']) !!}
                     </div>
                     <div class="form-group form-group-default form-show-validation row">
                         <label for="name">First Name <span class="-label">*</span></label>
@@ -122,18 +118,15 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                                <select class="form-control" name="medical_allergies" id="medical_allergies" required>
-                                    <option value="">----</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
+                                {!! Form::select('medical_allergies', ["" => '--', 1 => 'Yes', 2 => 'No'], null, ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <div class="form-group form-group-default form-show-validation row">
-                                <label for="name">Details
+                            <div class="form-group form-group-default form-show-validation row @if ($errors->has('medical_allergies_details')) has-error @endif">
+                                <label for="name">Details</label>
                                     {!! Form::text('medical_allergies_details', null, ['placeholder' => 'Details', 'class'
                                     => 'form-control']) !!}
+                                    @if ($errors->has('medical_allergies_details'))  {{ $errors->first('medical_allergies_details')}} @endif
                             </div>
                         </div>
                     </div>
@@ -143,11 +136,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                                <select class="form-control" name="medical_regularmeds" id="medical_regularmeds" required>
-                                    <option value="">----</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
+                                {!! Form::select('medical_regularmeds', ["" => '--', 1 => 'Yes', 2 => 'No'], null, ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -165,11 +154,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                                <select class="form-control" name="medical_longterm" id="medical_longterm" required>
-                                    <option value="">----</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
+                                {!! Form::select('medical_longterm', ["" => '--', 1 => 'Yes', 2 => 'No'], null, ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -187,11 +172,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                                <select class="form-control" name="medical_dietary" id="medical_dietary" required>
-                                    <option value="">----</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
+                                {!! Form::select('medical_dietary', ["" => '--', 1 => 'Yes', 2 => 'No'], null, ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -210,11 +191,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                                <select class="form-control" name="medical_physical" id="medical_physical" required>
-                                    <option value="">----</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
+                                {!! Form::select('medical_physical', ["" => '--', 1 => 'Yes', 2 => 'No'], null, ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="col-md-7">
