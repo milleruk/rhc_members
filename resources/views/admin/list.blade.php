@@ -105,7 +105,9 @@
                                             <td>{{ $data->mobile_phone }}</td>
                                             <td>{{ $data->emg_name }} <br> {{ $data->emg_con_number }} <br> {{ $data->emg_relationship }}</td>
 
-                                            <td><button type="button" class="btn btn-primary btn-sm">View</button>
+                                            <td>
+
+                                                <a href="/admin/view/{{ $data->id }}"><button type="button" class="btn btn-primary btn-sm">View</button></a>
                                             </td>
                                         </tr>
                                         @endforeach

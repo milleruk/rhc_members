@@ -33,7 +33,7 @@
                                     <td>{{ $data->first_name }} {{ $data->last_name }}</td>
                                     <td>{{ $data->date_of_birth }}</td>
                                     <td>{{ $data->emg_name }} <br> {{ $data->emg_con_number }}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
+                                    <td><!-- <button type="button" class="btn btn-primary btn-sm">Edit</button>--></td>
                                     <td>
 
 
@@ -44,8 +44,7 @@
                         </tbody>
                     </table>
                 </div>
-                    <a href="/membership/addchild"><button type="button" class="btn btn-primary">Add Under
-                            16</button></a>
+                    <a href="/membership/addchild"><button type="button" class="btn btn-primary">Add Junior</button></a>
                     <a href="/membership/addsenior"><button type="button" class="btn btn-primary">Add
                             Senior</button></a>
                 </div>

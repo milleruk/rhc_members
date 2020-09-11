@@ -32,5 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/membership/addsenior', 'MembershipController@create_senior');
     Route::post('/membership/addsenior', 'MembershipController@store_senior');
 
+
+
 });
 

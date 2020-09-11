@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MemberShip;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -36,5 +37,12 @@ class HomeController extends Controller
         $countFemale = MemberShip::where('gender','FEMALE')->count();
         //return $childData;
         return view('admin.list')->with(compact('memberData','countMale','countFemale','memberDataTotal'));
+    }
+
+    public function adminView($id)
+    {
+        $detailedView = DB::table("member_ships")->where("id",$id)->get();
+        //return $names;
+        return view('admin.detailed')->with(compact('detailedView'));
     }
 }
