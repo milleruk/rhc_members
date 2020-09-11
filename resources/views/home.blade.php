@@ -15,16 +15,16 @@
                         There are no players added to your account please add one to confirm you are a member<br><br>
                         @endunlessrole
                         <a href="{{ route('account') }}"><button class="btn btn-primary btn-lg btn-block">Account</button></a><br>
-                        @role('player')
-                        <button class="btn btn-primary btn-lg btn-block">COVID-19 Guidance</button><br>
-                        <button class="btn btn-primary btn-lg btn-block">Club News</button><br>
-                        <button class="btn btn-primary btn-lg btn-block">Membership Fees</button>
-                        @endrole
-                        @role('admin')
 
+                        @role('captain')
                         <hr><br>
                         <a href="{{ route('admin.list') }}"><button class="btn btn-warning btn-lg btn-block">Captains List Players</button></a>
                     @endrole
+
+                    @role('committee')
+                    <hr><br>
+                    <a href="{{ route('admin.list') }}"><button class="btn btn-warning btn-lg btn-block">Full List Players</button></a>
+                     @endrole
 
                     </div>
                 </div>
