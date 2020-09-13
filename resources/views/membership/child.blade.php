@@ -25,10 +25,7 @@
                 <div class="card-body">
                     <div class="form-group form-group-default form-show-validation row">
                         <label>Gender</label>
-                        <select class="form-control" id="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
+                        {!! Form::select('gender', ["" => '--', 'Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control', 'required']) !!}
                     </div>
                     <div class="form-group form-group-default form-show-validation row">
                         <label for="name">First Name <span class="-label">*</span></label>
