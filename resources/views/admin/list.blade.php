@@ -98,7 +98,7 @@
                                     </tfoot>
                                     <tbody>
                                         @foreach ($memberData as $data)
-                                        @if ($data->updated_at < Carbon\Carbon::now()->subDays(365)) 
+                                        @if ($data->updated_at > Carbon\Carbon::now()->subDays(365)) 
 
                                         <tr class="table-danger" role="row"> 
                                             @else
