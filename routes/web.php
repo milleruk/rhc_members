@@ -32,7 +32,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/membership/addsenior', 'MembershipController@create_senior');
     Route::post('/membership/addsenior', 'MembershipController@store_senior');
 
-
+    Route::get('/account/edit/{id}', 'HomeController@userEdit')->name('account.edit');
+    Route::get('/account/view/{id}', 'HomeController@userView')->name('account.view');
 
 });
 

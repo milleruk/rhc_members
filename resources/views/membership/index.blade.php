@@ -17,27 +17,35 @@
 
 
                     <br>The following players are listed under your account<br><bR>
-                        <div class="table-responsive">
-                    <table class="table table-striped">
+                    <div class="table-responsive">
+                                <table id="multi-filter-select" class="display table table-striped table-hover" >
                         <thead>
                             <td>Name</td>
                             <td>Date Of Birth</td>
                             <td>Emergency Details</td>
-                            <td colspan=2>Actions</td>
+                            <td>Actions</td>
+                            <td>Last Updated</td>
                         </thead>
                         <tbody>
 
                             @foreach ($memberData as $data)
+                            @if ($data->updated_at < Carbon\Carbon::now()->subDays(365)) 
 
-                                <tr>
+                            <tr class="table-danger" role="row"> 
+                                @else
+                            <tr>
+                            @endif
+                                
                                     <td>{{ $data->first_name }} {{ $data->last_name }}</td>
                                     <td>{{ $data->date_of_birth }}</td>
                                     <td>{{ $data->emg_name }} <br> {{ $data->emg_con_number }}</td>
-                                    <td><!-- <button type="button" class="btn btn-primary btn-sm">Edit</button>--></td>
                                     <td>
-
-
-                                                <button class="btn btn-danger" onclick="deleteConfirmation({{$data->id}})">Delete</button>
+                                        <a href="/account/edit/{{$data->id}}/"><button class="btn btn-primary">Edit</button></a>
+                                        <button class="btn btn-danger" onclick="deleteConfirmation({{$data->id}})">Delete</button>
+                                    </td>
+                                    <td>
+                                        {{ $data->updated_at }}
+                                    </td>
                                 </tr>
                             @endforeach
 

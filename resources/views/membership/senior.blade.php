@@ -126,7 +126,6 @@
                                 <label for="name">Details</label>
                                     {!! Form::text('medical_allergies_details', null, ['placeholder' => 'Details', 'class'
                                     => 'form-control']) !!}
-                                    @if ($errors->has('medical_allergies_details'))  {{ $errors->first('medical_allergies_details')}} @endif
                             </div>
                         </div>
                     </div>

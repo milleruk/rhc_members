@@ -45,4 +45,41 @@ class HomeController extends Controller
         //return $names;
         return view('admin.detailed')->with(compact('detailedView'));
     }
+
+    public function userView($id)
+    {
+        $viewAccountView = DB::table("member_ships")->where("id",$id)->get();
+
+        if($viewAccountView->isEmpty())
+        {
+            return redirect('account')->with('error', 'No Membership profile found to edit');
+        }
+        else
+        {
+            if (Auth::user()->id == $viewAccountView[0]->account_id) {
+                return view('account.view')->with(compact('viewAccountView'));
+            } else {
+                return redirect('account')->with('error', 'This Memership Profile does not belong to your account!');
+            }
+        }
+
+    }
+
+    public function userEdit($id)
+    {
+        $editAccountView = DB::table("member_ships")->where("id",$id)->get();
+        if($editAccountView->isEmpty())
+        {
+            return redirect('account')->with('error', 'No Membership profile found to edit');
+        }
+        else
+        {
+            if (Auth::user()->id == $editAccountView[0]->account_id) {
+                return view('account.edit')->with(compact('editAccountView'));
+            } else {
+                return redirect('account')->with('error', 'This Memership Profile does not belong to your account!');
+            }
+        }
+
+    }
 }
