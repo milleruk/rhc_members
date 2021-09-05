@@ -8,6 +8,13 @@
         <br><br>
         @foreach ($detailedView as $data)
         <div class="col-lg-12">
+        @if ($data->updated_at < Carbon\Carbon::now()->subDays(334)) 
+
+        <div class="alert alert-danger" role="alert">
+        These Details have not been updated in the past year - Please take caution should this information be required!!
+        </div>
+
+        @endif
             <div class="card card-primary bg-primary-gradient bubble-shadow">
 
                 <div class="card-body">
