@@ -84,6 +84,7 @@
                                             <th>Mobile</th>
                                             <th>Emergency Details</th>
                                             <th>Actions</th>
+                                            <th>Last Updated</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -94,6 +95,7 @@
                                             <th>Mobile</th>
                                             <th>Emergency Details</th>
                                             <th>Actions</th>
+                                            <th>Last Updated</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -114,6 +116,7 @@
 
                                                 <a href="/admin/view/{{ $data->id }}"><button type="button" class="btn btn-primary btn-sm">View</button></a>
                                             </td>
+                                            <td>{{ $data->updated_at }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
