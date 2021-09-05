@@ -28,8 +28,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         /** @var \App\User $user */
         $admin = factory(\App\User::class)->create([
-            'name' => 'Benjamin Haresign',
-            'email' => 'ben@haresign.net',
+            'name' => 'Admin Dev',
+            'email' => 'admin@dev.com',
             'password' => bcrypt('123456')
         ]);
 
@@ -40,14 +40,13 @@ class RolesAndPermissionsSeeder extends Seeder
 
         /** @var \App\User $user */
         $admin2 = factory(\App\User::class)->create([
-            'name' => 'Becki Clarke',
-            'email' => 'beckiclarke@hotmail.com',
+            'name' => 'Captain Dev',
+            'email' => 'captain@dev.com',
             'password' => bcrypt('123456')
         ]);
 
         $admin2->assignRole('admin');
         $admin2->assignRole('captain');
-        $admin2->assignRole('committee');
 
     }
 }
