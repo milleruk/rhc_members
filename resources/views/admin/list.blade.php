@@ -65,7 +65,6 @@
             <div class="col col-lg 12">
                 <div class="card">
                     <div class="card-header">RHC Membership</div>
-{{Carbon\Carbon::now()->subDays(365)}}
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -100,7 +99,7 @@
                                     </tfoot>
                                     <tbody>
                                         @foreach ($memberData as $data)
-                                        @if ($data->updated_at < Carbon\Carbon::now()->subDays(365)) 
+                                        @if ($data->updated_at < Carbon\Carbon::now()->subDays(334)) 
 
                                         <tr class="table-danger" role="row"> 
                                             @else

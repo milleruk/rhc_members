@@ -7,7 +7,7 @@
         <br><br>
         @foreach ($editAccountView as $data)
         <div class="col-lg-12">
-            @if ($data->updated_at < Carbon\Carbon::now()->subDays(365)) 
+            @if ($data->updated_at < Carbon\Carbon::now()->subDays(334)) 
 
             <div class="alert alert-danger" role="alert">
             You have not updated your membership details in the last year please update these!
