@@ -186,15 +186,13 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
                     <div class="row">
                         <div class="col-md-10">
                             <p>I consent to my medical details to be shared with coaches/leaders for the purposes of the delivery of my safe participation in the hockey club activity</p>
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="medical_consent" value="1" {{$data->medical_consent ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('medical_consent', 1, false, ['id' => 'medical_consent', 'class' => 'custom-control-input', 'required']) }}<label
                                     class="custom-control-label" for="medical_consent">Confirm</label>
                             </div>
                         </div>
@@ -206,8 +204,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="medical_consent_update" value="1" {{$data->medical_consent_update ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('medical_consent_update', 1, false, ['id' => 'medical_consent_update', 'class' => 'custom-control-input', 'required']) }}<label
                                     class="custom-control-label" for="medical_consent_update">Confirm</label>
                             </div>
                         </div>
@@ -241,8 +238,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="consent_policies" value="1" {{$data->consent_policies ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('consent_policies', 1, false, ['id' => 'consent_policies', 'class' => 'custom-control-input', 'required']) }}<label
                                     class="custom-control-label" for="consent_policies">Confirm</label>
                             </div>
                         </div>
@@ -258,8 +254,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="consent_photography" value="1" {{$data->consent_photography ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('consent_photography', 1, false, ['id' => 'consent_photography', 'class' => 'custom-control-input', 'required']) }}<label
                                     class="custom-control-label" for="consent_photography">Confirm</label>
                             </div>
                         </div>
@@ -273,8 +268,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="consent_marketing" value="1" {{$data->consent_marketing ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('consent_marketing', 1, false, ['id' => 'consent_marketing', 'class' => 'custom-control-input', 'required']) }}<label
                                     class="custom-control-label" for="consent_marketing">Confirm</label>
                             </div>
                         </div>
@@ -295,8 +289,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="consent_privacy_notice" value="1" {{$data->consent_privacy_notice ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('consent_privacy_notice', 1, false, ['id' => 'consent_privacy_notice', 'class' => 'custom-control-input', 'required']) }}<label
                                     class="custom-control-label" for="consent_privacy_notice">Confirm</label>
                             </div>
                         </div>
