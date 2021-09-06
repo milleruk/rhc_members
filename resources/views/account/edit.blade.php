@@ -443,8 +443,7 @@ Redditch Hockey Club finds acceptable</li>
                         </div>
                         <div class="col-md-4">
                             <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="disability_12months" value="1" {{$data->disability_12months ? "checked" : ""}}>
-                                <label
+                                {{ Form::checkbox('disability_12months', 1, false, ['id' => 'disability_12months', 'class' => 'custom-control-input']) }}<label
                                     class="custom-control-label" for="disability_12months">Yes</label>
                                 <br><br>
 
@@ -511,9 +510,8 @@ Encourage people always to settle disagreements amicably without resorting to ho
                         club of any changes to the medical information provided. Furthermore, I agree to abide by Redditch
                         Hockey Club’s code of conduct for players
                         and spectators.</p>
-                    <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="declaration" value="1" {{$data->declaration ? "checked" : ""}}>
-                        <label
+                        <div class="custom-control custom-checkbox">
+                        {{ Form::checkbox('declaration', 1, false, ['id' => 'declaration', 'class' => 'custom-control-input', 'required']) }}<label
                             class="custom-control-label" for="declaration">By Ticking this box you agreed that all of the
                             above is factualy accurate</label>
                     </div>
