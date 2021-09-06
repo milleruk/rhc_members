@@ -60,7 +60,7 @@
 						<label class="custom-control-label" for="rememberme">Remember Me</label>
 					</div>
 
-					<a href="#" class="link float-right">Forget Password ?</a>
+					<a href="/password/reset/" class="link float-right">Forget Password ?</a>
 				</div>
 				<div class="form-action mb-3">@csrf
                     <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign In</button>
