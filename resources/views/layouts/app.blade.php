@@ -84,16 +84,14 @@
 										<div class="avatar-lg"><img src="https://pbs.twimg.com/profile_images/776496372254121984/gAIO0-U6_400x400.jpg" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4>{{ Auth::user()->name }}</h4>
-											<p class="text-muted">{{ Auth::user()->email }}</p><a href="#" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+											<p class="text-muted">{{ Auth::user()->email }}</p>
 										</div>
 									</div>
 								</li>
 								<li>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">My Profile</a>
+									<a class="dropdown-item" href="{{ route('account') }}">My Profile</a>
 									<a class="dropdown-item" href="#">Inbox</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Account Setting</a>
 									<div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -121,9 +119,6 @@
 			<div class="sidebar-wrapper scrollbar-inner">
 				<div class="sidebar-content">
 					<div class="user">
-						<div class="avatar-sm float-left mr-2">
-							<img src="https://pbs.twimg.com/profile_images/776496372254121984/gAIO0-U6_400x400.jpg" alt="..." class="avatar-img rounded-circle">
-						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
@@ -131,32 +126,14 @@
                                     <span class="user-level"> Roles: <br>  </span>
                                     <ul>@foreach (Auth::user()->roles as $v)
                                     <li>{{ $v->name }}</li>
-                        @endforeach
+                        			@endforeach
                                     </ul>
 									<span class="caret"></span>
 								</span>
 							</a>
 							<div class="clearfix"></div>
 
-							<div class="collapse in" id="collapseExample">
-								<ul class="nav">
-									<li>
-										<a href="#profile">
-											<span class="link-collapse">My Profile</span>
-										</a>
-									</li>
-									<li>
-										<a href="#edit">
-											<span class="link-collapse">Edit Profile</span>
-										</a>
-									</li>
-									<li>
-										<a href="#settings">
-											<span class="link-collapse">Settings</span>
-										</a>
-									</li>
-								</ul>
-							</div>
+
 						</div>
 					</div>
 					<ul class="nav">
@@ -224,19 +201,7 @@
 				<div class="page-inner">
 					<div class="page-header">
 						<h4 class="page-title">Dashboard | {{ Request::segment(1) }} | {{ Request::segment(2) }}</h4>
-						<div class="btn-group btn-group-page-header ml-auto">
-							<button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-ellipsis-h"></i>
-							</button>
-							<div class="dropdown-menu">
-								<div class="arrow"></div>
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Separated link</a>
-							</div>
-						</div>
+
                     </div>
 
                     @if ($message = Session::get('success'))
