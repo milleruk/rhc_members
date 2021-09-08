@@ -35,5 +35,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/account/edit/{id}', 'HomeController@userEdit')->name('account.edit');
     Route::get('/account/view/{id}', 'HomeController@userView')->name('account.view');
 
+
+    //Route::patch('/membership/update/{id}','MembershipController@update');
+    Route::resource('membership', 'MembershipController');
+
 });
 

@@ -7,7 +7,9 @@
 
                 <div class="card-body">
                 @foreach ($editAccountView as $data)
-                    <form method="post" action="" enctype="multipart/form-data">
+                
+                {{ Form::model($data, array('route' => array('membership.update', $data->id), 'method' => 'PUT')) }}
+
                         {{ csrf_field() }}
                         <p>All prospective members of Redditch Hockey Club are required to complete this membership form.
                             </p>
@@ -76,6 +78,7 @@
                         <label for="name">Contact Number <span class="-label">*</span></label>
                         <input type="text" class="form-control" id="emg_con_number" value="{{$data->emg_con_number}}" placeholder="Enter name" name="emg_con_number" >
                     </div>
+                
                 </div>
             </div>
         </div>
@@ -97,7 +100,7 @@
                         <div class="col-md-6">
                             <div class="form-group form-group-default form-show-validation row">
                                 <label for="name">Doctor <span class="-label">*</span></label>
-                                <input type="text" class="form-control" id="medical_doctor" value="{{$data->medical_doctor}}" placeholder="Enter name" name="medical_doctore" >
+                                <input type="text" class="form-control" id="medical_doctor" value="{{$data->medical_doctor}}" placeholder="Enter name" name="medical_doctor" >
                             </div>
                         </div>
                     </div>
@@ -332,7 +335,7 @@ This includes subscription, training and upto 22
 winter season (Saturday) match fees. Extra matches
 outside of this quota are to be paid for in cash</li>
                     <li>Standing Order Option 2 - £65.00 per month
-                        running for 6 months (October to March inclusive</li>
+                        running for 6 months (October to March inclusive)</li>
                 </ul>
             </td>
         </tr>
@@ -401,14 +404,16 @@ Redditch Hockey Club finds acceptable</li>
 
     </tbody>
 </table>
-                    <select class="form-control" name="membershiptype" id="membershiptype" required>
-                        
-                        <option value="">----</option>
-                        <option value="4">Student with valid student card</option>
-                        <option value="5">Full Senior</option>
-                        <option value="6">Social Member (Back to Hockey / Midweek players)</option>
-                        <option value="7">Goalkeeper with own kit</option>
-                    </select>
+
+                {!! Form::select('membershiptype', 
+                    [
+                        "" => '--', 
+                        '4' => 'Student with valid student card', 
+                        '5' => 'Full Senior', 
+                        '6' => 'Social Member (Back to Hockey / Midweek players)', 
+                        '7' => 'Goalkeeper with own kit'
+                    ], null, ['class' => 'form-control', 'required']) !!}
+
                     <br>
                     <p><b>Payment Options </b><br>Cash / Cheque made payable to Redditch C H & R Club Ltd (Hockey Section) /
                         Card Machine / Bank Transfer / SO
@@ -417,18 +422,21 @@ Redditch Hockey Club finds acceptable</li>
                         Sort Code – 09-01-29<br>
                         Account No. – 19134767</p>
                         <p><b>Please let us know how you are paying for your membership</b></p>
-                        <select class="form-control" name="paymenttype" id="paymenttype" required>
-                            <option value="">----</option>
-                            <option value="1">Cash</option>
-                            <option value="2">Cheque</option>
-                            <option value="3">Card</option>
-                            <option value="4">Bank Transfer</option>
-                            <option value="5">Standing Order</option>
-                        </select>
+
+                {!! Form::select('paymenttype', 
+                    [
+                        "" => '--', 
+                        '1' => 'Cash', 
+                        '2' => 'Cheque', 
+                        '3' => 'Card', 
+                        '4' => 'Bank Transfer',
+                        '5' => 'Standing Order'
+                    ], null, ['class' => 'form-control', 'required']) !!}
 
                     </div>
             </div>
         </div>
+        
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">

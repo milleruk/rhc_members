@@ -73,12 +73,23 @@ class HomeController extends Controller
             return redirect('account')->with('error', 'No Membership profile found to edit');
         }
         else
-        {
-            if (Auth::user()->id == $editAccountView[0]->account_id) {
-                return view('account.edit')->with(compact('editAccountView'));
-            } else {
-                return redirect('account')->with('error', 'This Memership Profile does not belong to your account!');
+        {   
+            if ($editAccountView[0]->membershiptype > 3) {
+                if (Auth::user()->id == $editAccountView[0]->account_id) {
+                    return view('account.edit')->with(compact('editAccountView'));
+                } else {
+                    return redirect('account')->with('error', 'This Memership Profile does not belong to your account!');
+                }
             }
+            else
+            {
+                if (Auth::user()->id == $editAccountView[0]->account_id) {
+                    return view('account.childedit')->with(compact('editAccountView'));
+                } else {
+                    return redirect('account')->with('error', 'This Memership Profile does not belong to your account!');
+                }
+            }
+
         }
 
     }
