@@ -27,10 +27,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/account', 'MembershipController@index')->name('account');
     Route::post('/membership/remove/{id}', 'MembershipController@destroy')->name('users.destroy');
+
     Route::get('/membership/addchild', 'MembershipController@create_child');
-    Route::post('/membership/addchild', 'MembershipController@store_child');
+    Route::post('/membership/addchild', 'MembershipController@store');
+
     Route::get('/membership/addsenior', 'MembershipController@create_senior');
-    Route::post('/membership/addsenior', 'MembershipController@store_senior');
+    Route::post('/membership/addsenior', 'MembershipController@store');
 
     Route::get('/account/edit/{id}', 'HomeController@userEdit')->name('account.edit');
     Route::get('/account/view/{id}', 'HomeController@userView')->name('account.view');
