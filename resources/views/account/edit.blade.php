@@ -117,7 +117,8 @@
                         <div class="col-md-7">
                             <div class="form-group form-group-default form-show-validation row @if ($errors->has('medical_allergies_details')) has-error @endif">
                                 <label for="name">Details</label>
-                                <input type="text" class="form-control" id="medical_allergies_details" value="{{$data->medical_allergies_details}}" placeholder="Enter name" name="medical_allergies_details" >
+                                {!! Form::text('medical_allergies_details', null, ['placeholder' => 'Details', 'class'
+                                    => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
@@ -133,7 +134,8 @@
                         <div class="col-md-7">
                             <div class="form-group form-group-default form-show-validation row">
                                 <label for="name">Details</label>
-                                <input type="text" class="form-control" id="medical_regularmeds_details" value="{{$data->medical_regularmeds_details}}" placeholder="Enter name" name="medical_regularmeds_details" >
+                                {!! Form::text('medical_regularmeds_details', null, ['placeholder' => 'Details', 'class'
+                                    => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
@@ -150,7 +152,8 @@
                         <div class="col-md-7">
                             <div class="form-group form-group-default form-show-validation row">
                                 <label for="name">Details</label>
-                                <input type="text" class="form-control" id="medical_longterm_details" value="{{$data->medical_longterm_details}}" placeholder="Enter name" name="medical_longterm_details" >
+                                {!! Form::text('medical_longterm_details', null, ['placeholder' => 'Details', 'class' =>
+                                    'form-control']) !!}
                             </div>
                         </div>
                     </div>
@@ -167,7 +170,8 @@
                         <div class="col-md-7">
                             <div class="form-group form-group-default form-show-validation row">
                                 <label for="name">Details</label>
-                                <input type="text" class="form-control" id="medical_dietary_details" value="{{$data->medical_dietary_details}}" placeholder="Enter name" name="medical_dietary_details" >
+                                {!! Form::text('medical_dietary_details', null, ['placeholder' => 'Details', 'class' =>
+                                    'form-control']) !!}
                             </div>
                         </div>
                     </div>
@@ -185,7 +189,8 @@
                         <div class="col-md-7">
                             <div class="form-group form-group-default form-show-validation row">
                                 <label for="name">Details</label>
-                                <input type="text" class="form-control" id="medical_physical_detailse" value="{{$data->medical_physical_details}}" placeholder="Enter name" name="medical_physical_details" >
+                                {!! Form::text('medical_physical_details', null, ['placeholder' => 'Details', 'class' =>
+                                    'form-control']) !!}
                             </div>
                         </div>
                     </div>
