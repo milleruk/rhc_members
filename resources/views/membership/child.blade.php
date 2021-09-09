@@ -6,7 +6,7 @@
             <div class="card card-primary bg-primary-gradient bubble-shadow">
 
                 <div class="card-body">
-                    <form method="post" action="/membership/addchild" enctype="multipart/form-data">
+                    <form method="post" action="/membership/addplayer" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <p>Parents / Guardians of all prospective junior members of Redditch Hockey Club are to
                             complete this form.</p>
